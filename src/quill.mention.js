@@ -30,7 +30,7 @@ class Mention {
       minChars: 0,
       maxChars: 31,
       offsetTop: 2,
-      offsetLeft: 0,
+      offsetLeft: 20,
       isolateCharacter: false,
       fixMentionsToQuill: false,
       defaultMenuOrientation: 'bottom',
