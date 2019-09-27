@@ -424,6 +424,8 @@ class Mention {
       );
     }
 
+    topPos = topPos - 30;
+
     this.mentionContainer.style.top = `${topPos}px`;
     this.mentionContainer.style.left = `${leftPos}px`;
 
