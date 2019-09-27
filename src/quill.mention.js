@@ -71,7 +71,9 @@ class Mention {
       : '';
     this.mentionContainer.appendChild(this.mentionList);
 
-    document.body.appendChild(this.mentionContainer);
+    document
+      .getElementById('uni-quill-mention')
+      .appendChild(this.mentionContainer);
 
     quill.on('text-change', this.onTextChange.bind(this));
     quill.on('selection-change', this.onSelectionChange.bind(this));
