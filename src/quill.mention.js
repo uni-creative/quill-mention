@@ -353,6 +353,7 @@ class Mention {
 
     // handle horizontal positioning
     if (mentionCharPos.left > 100) {
+      const rightPos = 0;
       this.mentionContainer.style.right = `${rightPos}px`;
     } else {
       leftPos += mentionCharPos.left;
