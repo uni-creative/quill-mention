@@ -347,7 +347,7 @@ class Mention {
     const containerHeight = this.mentionContainer.offsetHeight;
 
     let topPos = containerPos.y;
-    let leftPos = this.options.offsetLeft;
+    let leftPos = containerPos.x + this.options.offsetLeft;
 
     // handle horizontal positioning
     if (mentionCharPos.left > 100) {
