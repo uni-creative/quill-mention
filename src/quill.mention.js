@@ -347,8 +347,8 @@ class Mention {
     const containerPos = this.quill.container.getBoundingClientRect();
     const mentionCharPos = this.quill.getBounds(this.mentionCharPos);
     const containerHeight = this.mentionContainer.offsetHeight;
-
-    let topPos = this.options.offsetTop;
+    // let topPos = this.options.offsetTop;
+    let topPos = containerPos.y;
     let leftPos = this.options.offsetLeft;
 
     // handle horizontal positioning
@@ -393,18 +393,19 @@ class Mention {
       if (this.options.fixMentionsToQuill) {
         topPos += containerPos.height;
       } else {
-        topPos += mentionCharPos.bottom;
+        // topPos += mentionCharPos.bottom;
+        topPos += mentionCharPos.height;
       }
 
       // default to the top if the bottom is not visible
       if (this.containerBottomIsNotVisible(topPos, containerPos)) {
-        let overMentionCharPos = this.options.offsetTop * -1;
-
-        if (!this.options.fixMentionsToQuill) {
-          overMentionCharPos += mentionCharPos.top;
-        }
-
-        topPos = overMentionCharPos - containerHeight;
+        // let overMentionCharPos = this.options.offsetTop * -1;
+        // if (!this.options.fixMentionsToQuill) {
+        //   overMentionCharPos += mentionCharPos.top;
+        // }
+        // topPos = overMentionCharPos - containerHeight;
+        topPos =
+          topPos - containerHeight - mentionCharPos.bottom - mentionCharPos.top;
       }
     }
 
@@ -423,8 +424,6 @@ class Mention {
         `${this.options.mentionContainerClass}-bottom`
       );
     }
-
-    topPos = topPos - 30;
 
     this.mentionContainer.style.top = `${topPos}px`;
     this.mentionContainer.style.left = `${leftPos}px`;
